@@ -3,7 +3,7 @@ import MyPost from "./MyPost/MyPost";
 import s from "./Profile.module.css";
 const Profile = () => {
   return (
-    <div className={s.content}>
+    <div>
       <div>
         <img src="https://x6w8x9r7.rocketcdn.me/wp-content/uploads/Hacking-optimised.jpg" />
       </div>
