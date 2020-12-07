@@ -2,7 +2,8 @@
   background-color: brown;
   grid-area: n;
 }
-.item {
+.item a {
+  text-decoration: none;
   font-size: 20px;
   margin-top: 5px;
   margin-left: 25%;
@@ -11,6 +12,6 @@
 .item:first-child {
   margin-top: 20px;
 }
-.item:active {
-  color: rgb(68, 41, 41);
+.item a.active {
+  color: aquamarine;
 }
