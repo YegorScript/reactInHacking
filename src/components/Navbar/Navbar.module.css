@@ -1,0 +1,16 @@
+.nav {
+  background-color: brown;
+  grid-area: n;
+}
+.item {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-left: 25%;
+  color: #f7e7ce;
+}
+.item:first-child {
+  margin-top: 20px;
+}
+.item:active {
+  color: rgb(68, 41, 41);
+}

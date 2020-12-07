@@ -1,0 +1,21 @@
+.header {
+  grid-area: h;
+  border-radius: 8%;
+  background: url(https://pngimg.com/uploads/death/death_PNG6.png) 0 0 / auto
+    100% no-repeat;
+  background-color: blueviolet;
+}
+.header img {
+  background: 0 0 / auto 100% no-repeat;
+}
+.text {
+  font-size: 50px;
+  color: rgb(238, 213, 75);
+  padding: 0px 600px;
+  font-weight: 700;
+  font-family: "Times New Roman", Times, serif;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
