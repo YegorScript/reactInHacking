@@ -1,4 +1,24 @@
-.content {
+.dialogsAll {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.dialog {
+  font-size: 18px;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+.dialog a {
+  color: black;
+  text-decoration: none;
+}
+.dialog a.active {
+  box-shadow: 0px 0px 10px 2px greenyellow;
+  color: gold;
+}
+.massages {
   background-color: cornflowerblue;
-  grid-area: c;
+}
+.dialogsItem {
+  background-color: rgb(184, 180, 180);
 }

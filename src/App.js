@@ -11,7 +11,7 @@ import Setting from "./components/Set/Set";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter className="window">
       <div className="app-wrapper">
         <Header />
         <Navbar />

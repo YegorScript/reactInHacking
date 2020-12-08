@@ -1,13 +1,12 @@
 import React from "react";
 import MyPost from "./MyPost/MyPost";
 import s from "./Profile.module.css";
+import ProfileIfo from "./ProfileInfo/ProfileInfo";
+
 const Profile = () => {
   return (
     <div>
-      <div>
-        <img src="https://x6w8x9r7.rocketcdn.me/wp-content/uploads/Hacking-optimised.jpg" />
-      </div>
-      <div>ava description</div>
+      <ProfileIfo />
       <MyPost />
     </div>
   );

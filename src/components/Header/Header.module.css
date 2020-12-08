@@ -3,15 +3,13 @@
   border-radius: 8%;
   background: url(https://pngimg.com/uploads/death/death_PNG6.png) 0 0 / auto
     100% no-repeat;
-  background-color: blueviolet;
+  background-color: #7c507c;
 }
-.header img {
-  background: 0 0 / auto 100% no-repeat;
-}
+
 .text {
   font-size: 50px;
   color: rgb(238, 213, 75);
-  padding: 0px 600px;
+  padding: 0px 0px 0px 50px;
   font-weight: 700;
   font-family: "Times New Roman", Times, serif;
   -ms-user-select: none;
