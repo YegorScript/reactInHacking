@@ -64,5 +64,12 @@ let store = {
     }
   },
 };
+export const ADD_POST_ACTION_CREATE = () => ({
+  type: "ADD-POST",
+});
+export const UPDATE_NEW_POST_TEXT_ACTION_CREATE = (text) => ({
+  type: "UPDATE-NEW-POST-TEXT",
+  newText: text,
+});
 
 export default store;
