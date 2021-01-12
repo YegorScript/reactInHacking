@@ -23,6 +23,7 @@ let store = {
         { id: 4, name: "Тимур" },
         { id: 5, name: "Эрик" },
       ],
+      newMessageBody: "",
     },
   },
   _callSubscriber() {},
@@ -61,6 +62,14 @@ let store = {
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      this._state.dialogsPage.newMessageBody = action.body;
+      this._callSubscriber(this._state);
+    } else if (action.type === "SEND-MESSAGE") {
+      let body = this._state.dialogsPage.newMessageBody;
+      this._state.dialogsPage.newMessageBody = "";
+      this._state.dialogsPage.message.push({ id: 6, message: body });
+      this._callSubscriber(this._state);
     }
   },
 };
@@ -70,6 +79,14 @@ export const ADD_POST_ACTION_CREATE = () => ({
 export const UPDATE_NEW_POST_TEXT_ACTION_CREATE = (text) => ({
   type: "UPDATE-NEW-POST-TEXT",
   newText: text,
+});
+
+export const SEND_MESSAGE = () => ({
+  type: "SEND-MESSAGE",
+});
+export const UPDATE_NEW_MESSAGE_TEXT = (body) => ({
+  type: "UPDATE-NEW-MESSAGE-TEXT",
+  body: body,
 });
 
 export default store;
