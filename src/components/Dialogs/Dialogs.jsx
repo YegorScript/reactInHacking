@@ -2,7 +2,10 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Dialog from "./DialogItem/Dialog";
 import Message from "./Massage/Message";
-import { SEND_MESSAGE, UPDATE_NEW_MESSAGE_TEXT } from "../../redux/state";
+import {
+  SEND_MESSAGE,
+  UPDATE_NEW_MESSAGE_TEXT,
+} from "../../redux/dialogsReduser";
 
 const Dialogs = (props) => {
   let dialogsElement = props.state.dialogs.map((p) => (
