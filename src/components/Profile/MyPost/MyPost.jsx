@@ -1,10 +1,6 @@
 import React from "react";
 import Post from "./Post/Post";
 import s from "./MyPost.module.css";
-import {
-  ADD_POST_ACTION_CREATE,
-  UPDATE_NEW_POST_TEXT_ACTION_CREATE,
-} from "../../../redux/profileReducer";
 
 const MyPost = (props) => {
   let postsElement = props.posts.map((m) => (
