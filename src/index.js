@@ -6,19 +6,12 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 
-let renderEntireTree = () => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.getElementById("root")
-  );
-};
-renderEntireTree(store.getState());
-store.subscribe(() => {
-  let state = store.getState();
-  renderEntireTree(state);
-});
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
