@@ -4,7 +4,7 @@ import s from "./MyPost.module.css";
 
 const MyPost = (props) => {
   let postsElement = props.profilePage.map((m) => (
-    <Post message={m.message} id={m.id} like={m.like} />
+    <Post message={m.message} id={m.id} like={m.like} key={m.id} />
   ));
   let newPostElement = React.createRef();
   let addPost = () => {
