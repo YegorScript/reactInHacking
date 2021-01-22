@@ -14,7 +14,7 @@ const Dialogs = (props) => {
   let onSendMessageClick = () => {
     props.SEND_MESSAGE();
   };
-  let onNewMassegeChange = (e) => {
+  let onNewMessageChange = (e) => {
     let body = e.target.value;
     props.UPDATE_NEW_MESSAGE_TEXT(body);
   };
@@ -27,7 +27,7 @@ const Dialogs = (props) => {
           <div>
             <textarea
               placeholder="Enter your message"
-              onChange={onNewMassegeChange}
+              onChange={onNewMessageChange}
               value={state.newMessageBody}
             ></textarea>
             <span>

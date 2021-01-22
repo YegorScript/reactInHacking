@@ -20,7 +20,6 @@ const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE-NEW-MESSAGE-TEXT":
       return { ...state, newMessageBody: action.body };
-    // stateCopy.newMessageBody = action.body;
 
     case "SEND-MESSAGE":
       let body = state.newMessageBody;
