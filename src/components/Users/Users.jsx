@@ -1,7 +1,6 @@
 import React from "react";
-debugger;
 let Users = (props) => {
-  if (!props.users.length === 0) {
+  if (props.users.length === 0) {
     props.SET_USERS([
       {
         id: 1,
@@ -46,7 +45,7 @@ let Users = (props) => {
               {u.followed ? (
                 <button
                   onClick={() => {
-                    props.unfollow(u.id);
+                    props.UN_FOLLOW(u.id);
                   }}
                 >
                   Unfollow
@@ -54,7 +53,7 @@ let Users = (props) => {
               ) : (
                 <button
                   onClick={() => {
-                    props.follow(u.id);
+                    props.FOLLOW(u.id);
                   }}
                 >
                   Follow

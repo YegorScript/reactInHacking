@@ -24,7 +24,7 @@ const usersReducer = (state = initialState, action) => {
         }),
       };
     case "SET-USERS":
-      return { ...state, users: [...state.users, ...action.action.users] };
+      return { ...state, users: [...state.users, ...action.users] };
     default:
       return state;
   }
