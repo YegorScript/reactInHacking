@@ -5,6 +5,7 @@ let initialState = {
     { id: 3, message: "OH.My Hacker?", like: 12 },
   ],
   newPostText: "YegorScript",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -22,7 +23,8 @@ const profileReducer = (state = initialState, action) => {
       };
     case "UPDATE-NEW-POST-TEXT":
       return { ...state, newPostText: action.newText };
-
+    case "SET-USER-PROFILE":
+      return { ...state, profile: action.profile };
     default:
       return state;
   }
@@ -34,5 +36,9 @@ export const ADD_POST_ACTION_CREATE = () => ({
 export const UPDATE_NEW_POST_TEXT_ACTION_CREATE = (text) => ({
   type: "UPDATE-NEW-POST-TEXT",
   newText: text,
+});
+export const SET_USER_PROFILE = (profile) => ({
+  type: "SET-USER-PROFILE",
+  profile,
 });
 export default profileReducer;
