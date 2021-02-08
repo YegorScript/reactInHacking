@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import usersIcon from "../../assets/images/users.jpg";
 import s from "./Users.module.css";
+import { UserAPI } from "../../API/api";
 
 const Users = (props) => {
   let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -38,7 +39,11 @@ const Users = (props) => {
             {u.followed ? (
               <button
                 onClick={() => {
-                  props.UN_FOLLOW(u.id);
+                  UserAPI.UnFollowUser(u.id).then((data) => {
+                    if (data.resultCode === 0) {
+                      props.UN_FOLLOW(u.id);
+                    }
+                  });
                 }}
               >
                 Unfollow
@@ -46,7 +51,11 @@ const Users = (props) => {
             ) : (
               <button
                 onClick={() => {
-                  props.FOLLOW(u.id);
+                  UserAPI.UnFollowUser(u.id).then((data) => {
+                    if (data.resultCode === 0) {
+                      props.FOLLOW(u.id);
+                    }
+                  });
                 }}
               >
                 Follow
