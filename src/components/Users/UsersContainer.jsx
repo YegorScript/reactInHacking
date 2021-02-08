@@ -64,29 +64,6 @@ const mapStateToProps = (state) => {
     isFetching: state.usersPage.isFetching,
   };
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     FOLLOW: (userId) => {
-//       dispatch(FOLLOW(userId));
-//     },
-//     UN_FOLLOW: (userId) => {
-//       dispatch(UN_FOLLOW(userId));
-//     },
-//     SET_USERS: (users) => {
-//       dispatch(SET_USERS(users));
-//     },
-//     SET_CURRENT_PAGE: (pageNumber) => {
-//       dispatch(SET_CURRENT_PAGE(pageNumber));
-//     },
-//     SET_TOTAL_USERS_COUNT: (totalCount) => {
-//       dispatch(SET_TOTAL_USERS_COUNT(totalCount));
-//     },
-//     TOGGLE_IS_FETCHING: (isFetching) => {
-//       dispatch(TOGGLE_IS_FETCHING(isFetching));
-//     },
-//   };
-// };
-
 export default connect(mapStateToProps, {
   FOLLOW,
   UN_FOLLOW,

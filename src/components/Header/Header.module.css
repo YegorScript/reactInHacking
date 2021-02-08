@@ -16,3 +16,17 @@
   -webkit-user-select: none;
   user-select: none;
 }
+.loginBlock {
+  float: right;
+  padding-top: 20px;
+}
+.loginBlock a {
+  font-size: 20px;
+  margin: 25px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+  text-decoration: none;
+  color: rgb(238, 116, 222);
+}
+.loginBlock a:active {
+  color: #7c507c;
+}
