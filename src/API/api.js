@@ -16,10 +16,10 @@ export const UserAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(RE);
   },
   followUser(u) {
-    return instance.post(`follow/${u.id}`).then(RE);
+    return instance.post(`follow/${u}`).then(RE);
   },
   UnFollowUser(u) {
-    return instance.delete(`follow/${u.id}`).then(RE);
+    return instance.delete(`follow/${u}`).then(RE);
   },
   Login() {
     return instance.get(`auth/me`).then(RE);

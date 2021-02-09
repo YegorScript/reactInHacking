@@ -7,6 +7,7 @@ import {
   SET_CURRENT_PAGE,
   SET_TOTAL_USERS_COUNT,
   TOGGLE_IS_FETCHING,
+  TOGGLE_IS_FOLLOWING,
 } from "../../redux/usersReducer";
 import Users from "./Users";
 import Preloader from "../Preloader/Preloader";
@@ -45,6 +46,8 @@ class UsersAPIComponent extends React.Component {
           users={this.props.users}
           UN_FOLLOW={this.props.UN_FOLLOW}
           FOLLOW={this.props.FOLLOW}
+          TOGGLE_IS_FOLLOWING={this.props.TOGGLE_IS_FOLLOWING}
+          followingIsProgress={this.props.followingIsProgress}
         />
       </>
     );
@@ -57,6 +60,7 @@ const mapStateToProps = (state) => {
     pageSize: state.usersPage.pageSize,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingIsProgress: state.usersPage.followingIsProgress,
   };
 };
 export default connect(mapStateToProps, {
@@ -66,4 +70,5 @@ export default connect(mapStateToProps, {
   SET_CURRENT_PAGE,
   SET_TOTAL_USERS_COUNT,
   TOGGLE_IS_FETCHING,
+  TOGGLE_IS_FOLLOWING,
 })(UsersAPIComponent);
