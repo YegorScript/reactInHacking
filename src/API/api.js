@@ -24,4 +24,7 @@ export const UserAPI = {
   Login() {
     return instance.get(`auth/me`).then(RE);
   },
+  getProfileContainer(userId) {
+    return instance.get(`profile/` + userId).then(RE);
+  },
 };
