@@ -1,3 +1,5 @@
+import { UserAPI } from "../API/api";
+
 let initialState = {
   users: [],
   totalUsersCount: 0,
@@ -73,5 +75,40 @@ export const TOGGLE_IS_FOLLOWING = (isFetching, usersId) => ({
   isFetching,
   usersId,
 });
+
+export const getUsers = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(TOGGLE_IS_FETCHING(true));
+    UserAPI.getUsersContainer(currentPage, pageSize).then((data) => {
+      dispatch(SET_USERS(data.items));
+      dispatch(SET_TOTAL_USERS_COUNT(100));
+      // response.data.totalCount
+      dispatch(TOGGLE_IS_FETCHING(false));
+    });
+  };
+};
+export const follow = (u) => {
+  return (dispatch) => {
+    dispatch(TOGGLE_IS_FOLLOWING(true, u));
+
+    UserAPI.followUser(u).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(FOLLOW(u));
+      }
+      dispatch(TOGGLE_IS_FOLLOWING(false, u));
+    });
+  };
+};
+export const unfollow = (u) => {
+  return (dispatch) => {
+    dispatch(TOGGLE_IS_FOLLOWING(true, u));
+    UserAPI.UnFollowUser(u).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(UN_FOLLOW(u));
+      }
+      dispatch(TOGGLE_IS_FOLLOWING(false, u));
+    });
+  };
+};
 
 export default usersReducer;
