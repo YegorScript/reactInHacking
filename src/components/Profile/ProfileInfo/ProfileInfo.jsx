@@ -1,7 +1,9 @@
 import React from "react";
 import Preloader from "../../Preloader/Preloader";
+import StatusProfile from "./StatusProfile";
 import s from "./ProfileInfo.module.css";
 import usersIcon from "../../../assets/images/users.jpg";
+
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -26,6 +28,7 @@ const ProfileInfo = (props) => {
           alt=""
         />
       </div>
+      <StatusProfile status={"I like my social network"} />
     </div>
   );
 };

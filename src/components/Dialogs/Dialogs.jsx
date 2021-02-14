@@ -2,7 +2,6 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Dialog from "./DialogItem/Dialog";
 import Message from "./Massage/Message";
-import { Redirect } from "react-router-dom";
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
