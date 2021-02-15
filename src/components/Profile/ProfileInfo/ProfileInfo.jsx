@@ -28,7 +28,7 @@ const ProfileInfo = (props) => {
           alt=""
         />
       </div>
-      <StatusProfile status={"I like my social network"} />
+      <StatusProfile status={props.status} updateStatus={props.updateStatus} />
     </div>
   );
 };

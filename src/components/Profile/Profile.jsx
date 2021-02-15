@@ -5,7 +5,11 @@ import ProfileIfo from "./ProfileInfo/ProfileInfo";
 const Profile = (props) => {
   return (
     <div>
-      <ProfileIfo profile={props.profile} />
+      <ProfileIfo
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       <MyPostContainer />
     </div>
   );

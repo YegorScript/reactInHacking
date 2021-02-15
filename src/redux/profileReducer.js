@@ -1,4 +1,4 @@
-import { UserAPI } from "../API/api";
+import { ProfileAPI, UserAPI } from "../API/api";
 
 let initialState = {
   posts: [
@@ -8,6 +8,7 @@ let initialState = {
   ],
   newPostText: "YegorScript",
   profile: null,
+  status: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,6 +28,8 @@ const profileReducer = (state = initialState, action) => {
       return { ...state, newPostText: action.newText };
     case "SET-USER-PROFILE":
       return { ...state, profile: action.profile };
+    case "SET-STATUS":
+      return { ...state, status: action.status };
     default:
       return state;
   }
@@ -43,14 +46,25 @@ export const SET_USER_PROFILE = (profile) => ({
   type: "SET-USER-PROFILE",
   profile,
 });
-export const getProfile = (userId) => {
-  return (dispatch) => {
-    if (!userId) {
-      userId = 0;
+export const SET_STATUS = (status) => ({
+  type: "SET-STATUS",
+  status,
+});
+export const getProfile = (userId) => (dispatch) => {
+  UserAPI.getProfileContainer(userId).then((data) => {
+    dispatch(SET_USER_PROFILE(data));
+  });
+};
+export const getStatus = (userId) => (dispatch) => {
+  ProfileAPI.getStatus(userId).then((data) => {
+    dispatch(SET_STATUS(data));
+  });
+};
+export const updateStatus = (status) => (dispatch) => {
+  ProfileAPI.updateStatus(status).then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(SET_STATUS(status));
     }
-    UserAPI.getProfileContainer(userId).then((data) => {
-      dispatch(SET_USER_PROFILE(data));
-    });
-  };
+  });
 };
 export default profileReducer;
