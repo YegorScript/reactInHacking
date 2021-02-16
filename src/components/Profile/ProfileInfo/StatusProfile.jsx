@@ -17,14 +17,20 @@ class StatusProfile extends React.Component {
       status: e.currentTarget.value,
     });
   };
-
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.state !== this.props.state) {
+      this.setState({
+        status: this.props.status,
+      });
+    }
+  }
   render() {
     return (
       <div>
         {!this.state.editMode && (
           <div>
             <span onDoubleClick={this.activateEditMode}>
-              {this.props.status}
+              {this.props.status || "-----"}
             </span>
           </div>
         )}
