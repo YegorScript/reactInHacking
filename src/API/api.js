@@ -43,3 +43,9 @@ export const authAPI = {
     return instance.get(`auth/me`).then(RE);
   },
 };
+
+export const LoginAPI = {
+  getLog() {
+    return instance.post(`auth/login`).then(RE);
+  },
+};
