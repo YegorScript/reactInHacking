@@ -1,5 +1,5 @@
 import React from "react";
-import Preloader from "../../Preloader/Preloader";
+import Preloader from "../../common/Preloader/Preloader";
 import StatusProfile from "./StatusProfile";
 import s from "./ProfileInfo.module.css";
 import usersIcon from "../../../assets/images/users.jpg";
