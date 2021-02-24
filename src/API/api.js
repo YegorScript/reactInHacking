@@ -42,10 +42,12 @@ export const authAPI = {
   Me() {
     return instance.get(`auth/me`).then(RE);
   },
-};
-
-export const LoginAPI = {
-  getLog() {
-    return instance.post(`auth/login`).then(RE);
+  login(email, password, rememberMe = false) {
+    return instance
+      .post(`auth/login`, { email, password, rememberMe })
+      .then(RE);
+  },
+  logout() {
+    return instance.delete(`auth/login`).then(RE);
   },
 };
