@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { authAPI } from "../API/api";
 
 let initialState = {
@@ -29,22 +30,22 @@ export const authMe = () => {
     });
   };
 };
-export const login = (email, password, rememberMe) => {
-  return (dispatch) => {
-    authAPI.login(email, password, rememberMe).then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(authMe());
-      }
-    });
-  };
+export const login = (email, password, rememberMe) => (dispatch) => {
+  authAPI.login(email, password, rememberMe).then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(authMe());
+    } else {
+      let message = data.messages.length > 0 ? data.messages[0] : "Some error";
+      dispatch(stopSubmit("login", { _error: message }));
+    }
+  });
 };
-export const logout = (email, password, rememberMe) => {
-  return (dispatch) => {
-    authAPI.logout(email, password, rememberMe).then((data) => {
-      if (data.resultCode === 0) {
-        dispatch(SET_USER_DATA(null, null, null, false));
-      }
-    });
-  };
+export const logout = (email, password, rememberMe) => (dispatch) => {
+  authAPI.logout(email, password, rememberMe).then((data) => {
+    if (data.resultCode === 0) {
+      dispatch(SET_USER_DATA(null, null, null, false));
+    }
+  });
 };
+
 export default authReducer;
