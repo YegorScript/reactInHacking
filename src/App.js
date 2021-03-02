@@ -1,6 +1,9 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { Route, withRouter } from "react-router-dom";
+import { compose } from "redux";
 import "./App.css";
+import Preloader from "./components/common/Preloader/Preloader";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
@@ -10,24 +13,42 @@ import News from "./components/News/News";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import Setting from "./components/Set/Set";
 import UsersContainer from "./components/Users/UsersContainer";
+import { initializeApp } from "./redux/appReducer";
 
-const App = (props) => {
-  return (
-    <BrowserRouter className="window">
-      <div className="app-wrapper">
-        <HeaderContainer />
-        <Navbar />
-        <div className="app-wrapper-content">
-          <Route path="/dialogs" render={() => <DialogsContainer />} />
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/music" component={() => <Music />} />
-          <Route path="/news" component={() => <News />} />
-          <Route path="/setting" component={() => <Setting />} />
-          <Route path="/users" component={() => <UsersContainer />} />
-          <Route path="/login" component={() => <Login />} />
+class App extends React.Component {
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+  render() {
+    if (!this.props.initialized) {
+      <Preloader />;
+    }
+    return (
+      <div className="window">
+        <div className="app-wrapper">
+          <HeaderContainer />
+          <Navbar />
+          <div className="app-wrapper-content">
+            <Route path="/dialogs" render={() => <DialogsContainer />} />
+            <Route
+              path="/profile/:userId?"
+              render={() => <ProfileContainer />}
+            />
+            <Route path="/music" component={() => <Music />} />
+            <Route path="/news" component={() => <News />} />
+            <Route path="/setting" component={() => <Setting />} />
+            <Route path="/users" component={() => <UsersContainer />} />
+            <Route path="/login" component={() => <Login />} />
+          </div>
         </div>
       </div>
-    </BrowserRouter>
-  );
+    );
+  }
+}
+const mapStateToProps = (state) => {
+  return { initialized: state.app.initialized };
 };
-export default App;
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp })
+)(App);
