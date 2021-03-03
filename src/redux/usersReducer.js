@@ -76,11 +76,13 @@ export const TOGGLE_IS_FOLLOWING = (isFetching, usersId) => ({
   usersId,
 });
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(TOGGLE_IS_FETCHING(true));
+    dispatch(SET_CURRENT_PAGE(currentPage));
     UserAPI.getUsersContainer(currentPage, pageSize).then((data) => {
       dispatch(SET_USERS(data.items));
+
       dispatch(SET_TOTAL_USERS_COUNT(100));
       // response.data.totalCount
       dispatch(TOGGLE_IS_FETCHING(false));
