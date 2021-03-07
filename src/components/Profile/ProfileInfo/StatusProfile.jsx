@@ -5,13 +5,13 @@ class StatusProfile extends React.Component {
     editMode: false,
     status: this.props.status,
   };
-  activateEditMode = () => {
+  activateEditMode() {
     this.setState({ editMode: true });
-  };
-  deactivateEditMode = () => {
+  }
+  deactivateEditMode() {
     this.setState({ editMode: false });
     this.props.updateStatus(this.state.status);
-  };
+  }
   onStatusChange = (e) => {
     this.setState({
       status: e.currentTarget.value,

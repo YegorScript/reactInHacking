@@ -1,6 +1,6 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
-import StatusProfile from "./StatusProfile";
+import StatusProfileWithHooks from "./StatusProfileWithHooks";
 import s from "./ProfileInfo.module.css";
 import usersIcon from "../../../assets/images/users.jpg";
 
@@ -28,7 +28,10 @@ const ProfileInfo = (props) => {
           alt=""
         />
       </div>
-      <StatusProfile status={props.status} updateStatus={props.updateStatus} />
+      <StatusProfileWithHooks
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
     </div>
   );
 };
